@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
-import { 
-  Heart, 
-  Gift, 
-  Stars, 
+import {
+  Heart,
+  Gift,
+  Stars,
   Moon,
   CloudMoon,
   Star as StarIcon,
@@ -86,15 +86,15 @@ const PhotoGallery = () => {
           className="group relative cursor-pointer w-full"
         >
           <div className="overflow-hidden rounded-[2.5rem] aspect-[16/9] relative shadow-3xl border border-white/10 transition-all duration-700 group-hover:shadow-[0_0_80px_rgba(251,191,36,0.15)] group-hover:border-white/20">
-            <img 
-              src={photo.url} 
+            <img
+              src={photo.url}
               alt={photo.caption}
               className="object-cover w-full h-full transition-transform duration-1000 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/10 to-transparent opacity-80 group-hover:opacity-70 transition-opacity"></div>
-            
+
             <div className="absolute inset-0 flex flex-col justify-end p-12 md:p-24">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
@@ -104,13 +104,13 @@ const PhotoGallery = () => {
                 <h4 className="text-4xl md:text-7xl font-serif italic text-white leading-tight">{photo.caption}</h4>
               </motion.div>
             </div>
-            
+
             <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
           </div>
 
           <div className="mt-8 flex justify-between items-center px-4">
-             <div className="h-px bg-white/10 flex-1 mr-8"></div>
-             <div className="text-[10px] uppercase tracking-[0.3em] text-white/20 whitespace-nowrap">Chapter {i + 1}</div>
+            <div className="h-px bg-white/10 flex-1 mr-8"></div>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-white/20 whitespace-nowrap">Chapter {i + 1}</div>
           </div>
         </motion.div>
       ))}
@@ -130,17 +130,17 @@ const CinematicVideo = () => {
         </div>
         <h2 className="text-6xl md:text-8xl font-serif italic text-white tracking-tight">The Cinematic Story</h2>
       </div>
-      
+
       <div className="relative aspect-[19/7] w-full rounded-[2rem] md:rounded-[4rem] overflow-hidden shadow-[0_60px_120px_rgba(0,0,0,0.9)] bg-slate-950 group-hover:shadow-[0_0_100px_rgba(255,255,255,0.05)] transition-shadow duration-1000">
-        <iframe 
+        <iframe
           className="absolute inset-0 w-full h-full"
-          src={VIDEOS.CINEMATIC_STORY} 
+          src={VIDEOS.CINEMATIC_STORY}
           title="Birthday Celebration Video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           style={{ border: 0 }}
         ></iframe>
-        
+
         <div className="absolute inset-x-0 top-0 h-[20%] bg-gradient-to-b from-slate-950 to-transparent pointer-events-none opacity-80" />
         <div className="absolute inset-x-0 bottom-0 h-[20%] bg-gradient-to-t from-slate-950 to-transparent pointer-events-none opacity-80" />
         <div className="absolute inset-0 border border-white/5 rounded-[2rem] md:rounded-[4rem] pointer-events-none" />
@@ -178,34 +178,34 @@ const InteractiveStar = ({ star, onHover, intensity }: { star: any; onHover: () 
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-      <Tooltip text="Celestial Twinkle">
-        <motion.div
-          onMouseEnter={() => {
-            setIsHovered(true);
-            onHover();
-          }}
-          onMouseLeave={() => setIsHovered(false)}
-          initial={{ opacity: 0 }}
-          animate={{ 
-            opacity: isHovered ? 1 : [0, 0.4 * intensity, 0],
-            scale: isHovered ? 1.5 : 1 * intensity,
-            backgroundColor: isHovered ? "#fff" : "rgba(255, 255, 255, 0.8)",
-            boxShadow: isHovered ? "0 0 15px 2px rgba(255, 255, 255, 0.8)" : "none"
-          }}
-          transition={{ 
-            opacity: isHovered ? { duration: 0.2 } : { duration: 3 + Math.random() * 4, repeat: Infinity, delay: star.delay },
-            scale: { duration: 0.2 },
-            backgroundColor: { duration: 0.2 }
-          }}
-          style={{ 
-            left: `${star.left}%`, 
-            top: `${star.top}%`,
-            width: star.size,
-            height: star.size,
-          }}
-          className="absolute rounded-full cursor-pointer z-50 pointer-events-auto"
-        />
-      </Tooltip>
+    <Tooltip text="Celestial Twinkle">
+      <motion.div
+        onMouseEnter={() => {
+          setIsHovered(true);
+          onHover();
+        }}
+        onMouseLeave={() => setIsHovered(false)}
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: isHovered ? 1 : [0, 0.4 * intensity, 0],
+          scale: isHovered ? 1.5 : 1 * intensity,
+          backgroundColor: isHovered ? "#fff" : "rgba(255, 255, 255, 0.8)",
+          boxShadow: isHovered ? "0 0 15px 2px rgba(255, 255, 255, 0.8)" : "none"
+        }}
+        transition={{
+          opacity: isHovered ? { duration: 0.2 } : { duration: 3 + Math.random() * 4, repeat: Infinity, delay: star.delay },
+          scale: { duration: 0.2 },
+          backgroundColor: { duration: 0.2 }
+        }}
+        style={{
+          left: `${star.left}%`,
+          top: `${star.top}%`,
+          width: star.size,
+          height: star.size,
+        }}
+        className="absolute rounded-full cursor-pointer z-50 pointer-events-auto"
+      />
+    </Tooltip>
   );
 };
 
@@ -214,7 +214,7 @@ const StarField = ({ mousePos }: { mousePos?: { x: number, y: number } }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 2000], [0, -150]);
-  
+
   useEffect(() => {
     const newStars = [...Array(120)].map((_, i) => ({
       id: i,
@@ -230,7 +230,7 @@ const StarField = ({ mousePos }: { mousePos?: { x: number, y: number } }) => {
     if (audioRef.current) {
       audioRef.current.currentTime = 0;
       audioRef.current.volume = 0.05;
-      audioRef.current.play().catch(() => {});
+      audioRef.current.play().catch(() => { });
     }
   };
 
@@ -245,7 +245,7 @@ const StarField = ({ mousePos }: { mousePos?: { x: number, y: number } }) => {
           const dist = Math.sqrt(dx * dx + dy * dy);
           intensity = Math.max(1, 4 - dist / 150);
         }
-        
+
         return <InteractiveStar key={star.id} star={star} onHover={playTwinkle} intensity={intensity} />;
       })}
     </motion.div>
@@ -255,7 +255,7 @@ const StarField = ({ mousePos }: { mousePos?: { x: number, y: number } }) => {
 const DynamicBackground = () => {
   const { scrollYProgress } = useScroll();
   const [time, setTime] = useState(new Date().getHours());
-  
+
   const auroraOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.2, 0.5, 0.2]);
   const auroraScale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
 
@@ -266,7 +266,7 @@ const DynamicBackground = () => {
 
   const getBaseColors = () => {
     if (time >= 6 && time < 18) {
-      return ['#1e1b4b', '#4c1d95', '#831843']; 
+      return ['#1e1b4b', '#4c1d95', '#831843'];
     }
     return ['#030712', '#1e1b4b', '#2e1065'];
   };
@@ -275,8 +275,8 @@ const DynamicBackground = () => {
 
   return (
     <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-slate-950">
-      <motion.div 
-        animate={{ 
+      <motion.div
+        animate={{
           background: [
             `radial-gradient(circle at 20% 30%, ${colors[1]} 0%, transparent 70%)`,
             `radial-gradient(circle at 80% 70%, ${colors[1]} 0%, transparent 70%)`,
@@ -286,16 +286,16 @@ const DynamicBackground = () => {
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         className="absolute inset-0 opacity-40"
       />
-      
-      <motion.div 
+
+      <motion.div
         style={{ opacity: auroraOpacity, scale: auroraScale }}
-        className="aurora-layer bg-purple-900/10" 
+        className="aurora-layer bg-purple-900/10"
       />
-      
-      <motion.div 
-        style={{ 
+
+      <motion.div
+        style={{
           opacity: useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.4, 0]),
-          y: useTransform(scrollYProgress, [0, 1], [0, -200]) 
+          y: useTransform(scrollYProgress, [0, 1], [0, -200])
         }}
         className="absolute inset-0 bg-lavender-900/10 mix-blend-overlay"
       />
@@ -316,58 +316,58 @@ const MoonBackground = ({ onWish }: { onWish?: () => void }) => {
 
   return (
     <motion.div style={{ y: yParallax }} className="fixed -top-60 -right-60 z-0">
-      <motion.div 
+      <motion.div
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{ scale: 1, opacity: 0.3 }}
         transition={{ duration: 4, ease: "easeOut" }}
         className="relative"
       >
         <div className="w-[800px] h-[800px] bg-slate-500 rounded-full blur-[200px] opacity-10"></div>
-          <Tooltip text="Make a Lunar Wish">
-            <motion.div 
-              animate={{ 
-                y: [0, -20, 0],
-                rotate: [0, 1, 0],
-                boxShadow: isWished 
-                  ? ["0 0 100px rgba(255,255,255,0.1)", "0 0 200px rgba(255,255,255,0.6)", "0 0 100px rgba(255,255,255,0.1)"]
-                  : "0 0 100px rgba(255,255,255,0.1)"
+        <Tooltip text="Make a Lunar Wish">
+          <motion.div
+            animate={{
+              y: [0, -20, 0],
+              rotate: [0, 1, 0],
+              boxShadow: isWished
+                ? ["0 0 100px rgba(255,255,255,0.1)", "0 0 200px rgba(255,255,255,0.6)", "0 0 100px rgba(255,255,255,0.1)"]
+                : "0 0 100px rgba(255,255,255,0.1)"
+            }}
+            whileHover={{ scale: 1.05, boxShadow: "0 0 150px rgba(255,255,255,0.4)" }}
+            whileTap={{ scale: 0.95 }}
+            onClick={handleWish}
+            transition={{
+              y: { duration: 30, repeat: Infinity, ease: "easeInOut" },
+              rotate: { duration: 30, repeat: Infinity, ease: "easeInOut" },
+              boxShadow: { duration: 2 }
+            }}
+            className="absolute top-80 right-80 w-96 h-96 rounded-full flex items-center justify-center overflow-hidden mix-blend-screen cursor-pointer pointer-events-auto shadow-[0_0_100px_rgba(255,255,255,0.1)]"
+            style={{ clipPath: 'circle(50% at 50% 50%)' }}
+          >
+            <motion.img
+              src={IMAGES.HERO_BG}
+              alt="Moon"
+              animate={{
+                filter: isWished ? "brightness(2) contrast(1.2)" : "brightness(1) contrast(1)",
+                opacity: isWished ? 1 : 0.4
               }}
-              whileHover={{ scale: 1.05, boxShadow: "0 0 150px rgba(255,255,255,0.4)" }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleWish}
-              transition={{ 
-                y: { duration: 30, repeat: Infinity, ease: "easeInOut" },
-                rotate: { duration: 30, repeat: Infinity, ease: "easeInOut" },
-                boxShadow: { duration: 2 } 
-              }}
-              className="absolute top-80 right-80 w-96 h-96 rounded-full flex items-center justify-center overflow-hidden mix-blend-screen cursor-pointer pointer-events-auto shadow-[0_0_100px_rgba(255,255,255,0.1)]"
-              style={{ clipPath: 'circle(50% at 50% 50%)' }}
-            >
-              <motion.img 
-                src={IMAGES.HERO_BG} 
-                alt="Moon" 
-                animate={{ 
-                  filter: isWished ? "brightness(2) contrast(1.2)" : "brightness(1) contrast(1)",
-                  opacity: isWished ? 1 : 0.4
-                }}
-                className="w-full h-full object-cover scale-150 saturate-0 hover:opacity-100 transition-opacity"
-                referrerPolicy="no-referrer"
-              />
-              
-              {/* Shimmer Overlay on Wish */}
-              <AnimatePresence>
-                {isWished && (
-                  <motion.div 
-                    initial={{ x: "-100%" }}
-                    animate={{ x: "200%" }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 1.5, ease: "easeInOut" }}
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12 z-10"
-                  />
-                )}
-              </AnimatePresence>
-            </motion.div>
-          </Tooltip>
+              className="w-full h-full object-cover scale-150 saturate-0 hover:opacity-100 transition-opacity"
+              referrerPolicy="no-referrer"
+            />
+
+            {/* Shimmer Overlay on Wish */}
+            <AnimatePresence>
+              {isWished && (
+                <motion.div
+                  initial={{ x: "-100%" }}
+                  animate={{ x: "200%" }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1.5, ease: "easeInOut" }}
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12 z-10"
+                />
+              )}
+            </AnimatePresence>
+          </motion.div>
+        </Tooltip>
       </motion.div>
     </motion.div>
   );
@@ -386,7 +386,7 @@ const Cinematic3DTimer = ({ onComplete }: { onComplete: () => void; key?: any })
   }, [seconds, onComplete]);
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -394,7 +394,7 @@ const Cinematic3DTimer = ({ onComplete }: { onComplete: () => void; key?: any })
       style={{ perspective: 1000 }}
     >
       <StarField />
-      
+
       <motion.div
         initial={{ rotateX: 45, opacity: 0, scale: 0.5 }}
         animate={{ rotateX: 0, opacity: 1, scale: 1 }}
@@ -403,7 +403,7 @@ const Cinematic3DTimer = ({ onComplete }: { onComplete: () => void; key?: any })
         className="relative z-10 text-center"
       >
         <div className="text-[12px] uppercase tracking-[0.8em] text-white/30 mb-8 font-bold">Initiating Sequence</div>
-        
+
         <AnimatePresence mode="wait">
           <motion.div
             key={seconds}
@@ -418,7 +418,7 @@ const Cinematic3DTimer = ({ onComplete }: { onComplete: () => void; key?: any })
         </AnimatePresence>
 
         <div className="mt-12 overflow-hidden h-px w-64 bg-white/10 mx-auto relative">
-          <motion.div 
+          <motion.div
             initial={{ x: "-100%" }}
             animate={{ x: "100%" }}
             transition={{ duration: 5, ease: "linear" }}
@@ -427,7 +427,7 @@ const Cinematic3DTimer = ({ onComplete }: { onComplete: () => void; key?: any })
         </div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         animate={{ opacity: [0, 0.1, 0, 0.2, 0] }}
         transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 1 }}
         className="fixed inset-0 bg-white pointer-events-none"
@@ -451,7 +451,7 @@ const PasscodeGate = ({ onSuccess }: { onSuccess: () => void; key?: any }) => {
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.1 }}
@@ -459,7 +459,7 @@ const PasscodeGate = ({ onSuccess }: { onSuccess: () => void; key?: any }) => {
     >
       <div className="fixed inset-0 vignette pointer-events-none"></div>
       <StarField />
-      
+
       <div className="relative z-10 w-full max-sm text-center">
         <motion.div initial={{ y: 20 }} animate={{ y: 0 }} className="mb-12">
           <div className="w-16 h-16 glass rounded-full flex items-center justify-center mx-auto mb-6 text-slate-300">
@@ -471,7 +471,7 @@ const PasscodeGate = ({ onSuccess }: { onSuccess: () => void; key?: any }) => {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <motion.div animate={error ? { x: [-10, 10, -10, 10, 0] } : {}} className="relative">
-            <input 
+            <input
               type="password"
               placeholder="••••"
               value={code}
@@ -479,7 +479,7 @@ const PasscodeGate = ({ onSuccess }: { onSuccess: () => void; key?: any }) => {
               className="w-full glass bg-white/5 border-white/10 rounded-2xl py-4 px-6 text-center text-3xl tracking-[1em] text-white focus:outline-none focus:border-white/20 transition-all placeholder:text-white/10"
             />
           </motion.div>
-          <button 
+          <button
             type="submit"
             className="w-full py-4 glass bg-white/10 hover:bg-white/20 rounded-2xl text-white font-bold tracking-widest uppercase transition-all active:scale-95"
           >
@@ -487,7 +487,7 @@ const PasscodeGate = ({ onSuccess }: { onSuccess: () => void; key?: any }) => {
           </button>
         </form>
         <p className="mt-8 text-[10px] text-slate-600 uppercase tracking-widest leading-loose">
-          Hint: The year she was born or a special year. <br/> (Code is 2026 for now)
+          Hint: The year she was born or a special year. <br /> (Code is 2026 for now)
         </p>
       </div>
     </motion.div>
@@ -499,22 +499,22 @@ const FallingStar = ({ id, delay }: { id: number; delay: number; key?: any }) =>
   if (clicked) return null;
 
   return (
-      <motion.div
-        key={id}
-        initial={{ x: '120%', y: '-20%', opacity: 0 }}
-        animate={{ x: '-20%', y: '120%', opacity: [0, 0.8, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity, delay: delay, ease: "easeIn" }}
-        onClick={() => {
-          setClicked(true);
-          confetti({
-            particleCount: 40,
-            spread: 60,
-            origin: { y: 0.6 },
-            colors: ['#fef3c7', '#fff', '#94a3b8']
-          });
-        }}
-        className="absolute w-40 h-px bg-gradient-to-r from-transparent via-slate-100 to-transparent rotate-[-45deg] cursor-pointer pointer-events-auto"
-      />
+    <motion.div
+      key={id}
+      initial={{ x: '120%', y: '-20%', opacity: 0 }}
+      animate={{ x: '-20%', y: '120%', opacity: [0, 0.8, 0] }}
+      transition={{ duration: 1.5, repeat: Infinity, delay: delay, ease: "easeIn" }}
+      onClick={() => {
+        setClicked(true);
+        confetti({
+          particleCount: 40,
+          spread: 60,
+          origin: { y: 0.6 },
+          colors: ['#fef3c7', '#fff', '#94a3b8']
+        });
+      }}
+      className="absolute w-40 h-px bg-gradient-to-r from-transparent via-slate-100 to-transparent rotate-[-45deg] cursor-pointer pointer-events-auto"
+    />
   );
 };
 
@@ -545,7 +545,7 @@ const MusicBlock3D = ({ isPlaying, onToggle }: { isPlaying: boolean; onToggle: (
         >
           <div className="absolute -top-20 -right-20 w-48 h-48 bg-amber-200/10 rounded-full blur-3xl"></div>
           <div className="relative z-10 flex flex-col items-center text-center">
-            <motion.div 
+            <motion.div
               animate={isPlaying ? { scale: [1, 1.1, 1] } : {}}
               transition={{ duration: 2, repeat: Infinity }}
               className="w-24 h-24 bg-white/10 rounded-3xl flex items-center justify-center mb-8 shadow-2xl border border-white/20 cursor-pointer"
@@ -603,16 +603,16 @@ const GiftBox = ({ onOpen, onMemoryView }: { onOpen: () => void; onMemoryView: (
             className="cursor-pointer relative"
           >
             <div className="w-48 h-48 bg-slate-100 rounded-2xl relative shadow-[0_30px_60px_rgba(0,0,0,0.4)] flex items-center justify-center overflow-hidden border-b-8 border-slate-300">
-               <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/20 to-transparent"></div>
-               <div className="absolute inset-y-0 w-10 bg-slate-500 left-1/2 -translate-x-1/2"></div>
-               <div className="absolute inset-x-0 h-10 bg-slate-500 top-1/2 -translate-y-1/2"></div>
-               <Gift className="text-slate-900 w-20 h-20 relative z-10" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/20 to-transparent"></div>
+              <div className="absolute inset-y-0 w-10 bg-slate-500 left-1/2 -translate-x-1/2"></div>
+              <div className="absolute inset-x-0 h-10 bg-slate-500 top-1/2 -translate-y-1/2"></div>
+              <Gift className="text-slate-900 w-20 h-20 relative z-10" />
             </div>
           </motion.div>
         ) : (
           <motion.div key="revealed-gift" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="relative flex flex-col items-center">
-            <motion.div 
-              animate={{ y: [0, -20, 0] }} 
+            <motion.div
+              animate={{ y: [0, -20, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               className="relative w-80 h-[500px] rounded-[3rem] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.9)] border border-slate-500/30"
             >
@@ -640,10 +640,10 @@ const GiftBox = ({ onOpen, onMemoryView }: { onOpen: () => void; onMemoryView: (
 const MessageReveal = ({ text, from }: { text: string; from: string }) => {
   const [show, setShow] = useState(false);
   return (
-    <motion.div 
+    <motion.div
       layout
-      whileHover={{ y: -10, borderColor: "rgba(251,191,36,0.3)" }} 
-      className="glass p-8 rounded-[2.5rem] cursor-pointer relative overflow-hidden group transition-colors duration-500" 
+      whileHover={{ y: -10, borderColor: "rgba(251,191,36,0.3)" }}
+      className="glass p-8 rounded-[2.5rem] cursor-pointer relative overflow-hidden group transition-colors duration-500"
       onClick={() => setShow(!show)}
     >
       <div className="flex items-center justify-between mb-6">
@@ -658,7 +658,7 @@ const MessageReveal = ({ text, from }: { text: string; from: string }) => {
 
       <AnimatePresence mode="wait">
         {!show ? (
-          <motion.h3 
+          <motion.h3
             key="hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -676,7 +676,7 @@ const MessageReveal = ({ text, from }: { text: string; from: string }) => {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-6"
           >
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
@@ -684,15 +684,15 @@ const MessageReveal = ({ text, from }: { text: string; from: string }) => {
             >
               "{text}"
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
               className="h-px w-full bg-gradient-to-r from-amber-200/20 via-white/10 to-transparent origin-left"
             />
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.6, duration: 1 }}
@@ -723,7 +723,7 @@ const LunarCalendar = ({ onExplore }: { onExplore: () => void }) => {
         <h3 className="text-2xl font-serif text-white italic mb-12 text-center">April 2026</h3>
         <div className="grid grid-cols-7 gap-3">
           {days.map(day => (
-            <div key={day} onClick={() => { setSelectedDate(day); if(specialDates[day]) onExplore(); }} className={`aspect-square rounded-2xl flex items-center justify-center cursor-pointer border transition-all ${selectedDate === day ? 'bg-lavender-500/20 border-white' : 'bg-white/5 border-transparent hover:bg-white/10'}`}>
+            <div key={day} onClick={() => { setSelectedDate(day); if (specialDates[day]) onExplore(); }} className={`aspect-square rounded-2xl flex items-center justify-center cursor-pointer border transition-all ${selectedDate === day ? 'bg-lavender-500/20 border-white' : 'bg-white/5 border-transparent hover:bg-white/10'}`}>
               <span className={`text-sm font-mono ${specialDates[day] ? 'text-amber-200' : 'text-slate-400'}`}>{day}</span>
             </div>
           ))}
@@ -773,8 +773,8 @@ const InteractiveCake = ({ onCut }: { onCut: () => void }) => {
   return (
     <div className="flex flex-col items-center py-20 px-6">
       <h2 className="text-4xl font-serif italic text-white mb-12">The Ritual</h2>
-      <div 
-        onClick={() => { if(candlesOut) { if(!isCut) { setIsCut(true); onCut(); } } else setCandlesOut(true); }} 
+      <div
+        onClick={() => { if (candlesOut) { if (!isCut) { setIsCut(true); onCut(); } } else setCandlesOut(true); }}
         className="relative cursor-pointer group"
       >
         <div className="absolute inset-0 bg-purple-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -788,8 +788,8 @@ const InteractiveCake = ({ onCut }: { onCut: () => void }) => {
           </div>
         )}
       </div>
-      <button 
-        onClick={() => { if(candlesOut) { if(!isCut) { setIsCut(true); onCut(); } } else setCandlesOut(true); }}
+      <button
+        onClick={() => { if (candlesOut) { if (!isCut) { setIsCut(true); onCut(); } } else setCandlesOut(true); }}
         className="mt-12 px-8 py-3 glass rounded-full text-white uppercase tracking-widest text-xs font-bold"
       >
         {!candlesOut ? "Blow Candles" : isCut ? "Delicious!" : "Cut the Cake"}
@@ -805,43 +805,43 @@ const PhotoSquareSlides = ({ onExplore }: { onExplore: () => void }) => {
     <div className="flex flex-col items-center py-32 px-6">
       <h2 className="text-4xl font-serif italic text-white mb-12">The Lunar Gallery</h2>
       <div className="relative aspect-square w-64 md:w-80 glass rounded-[3rem] p-6 shadow-2xl">
-         <AnimatePresence mode="wait">
-           <motion.img 
-             key={currentIndex}
-             initial={{ opacity: 0, scale: 0.9 }}
-             animate={{ opacity: 1, scale: 1 }}
-             exit={{ opacity: 0, scale: 1.1 }}
-             src={photoData[currentIndex].url} 
-             className="w-full h-full object-cover rounded-[2rem]" 
-           />
-         </AnimatePresence>
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={currentIndex}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.1 }}
+            src={photoData[currentIndex].url}
+            className="w-full h-full object-cover rounded-[2rem]"
+          />
+        </AnimatePresence>
       </div>
       <div className="flex space-x-12 mt-12 items-center">
-         <button onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))} className="text-white hover:scale-110 disabled:opacity-30" disabled={currentIndex === 0}><ChevronLeft /></button>
-         <div className="text-white/40 font-mono text-sm">{currentIndex + 1} / {photoData.length}</div>
-         <button onClick={() => { setCurrentIndex(Math.min(photoData.length - 1, currentIndex + 1)); onExplore(); }} className="text-white hover:scale-110 disabled:opacity-30" disabled={currentIndex === photoData.length - 1}><ChevronRight /></button>
+        <button onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))} className="text-white hover:scale-110 disabled:opacity-30" disabled={currentIndex === 0}><ChevronLeft /></button>
+        <div className="text-white/40 font-mono text-sm">{currentIndex + 1} / {photoData.length}</div>
+        <button onClick={() => { setCurrentIndex(Math.min(photoData.length - 1, currentIndex + 1)); onExplore(); }} className="text-white hover:scale-110 disabled:opacity-30" disabled={currentIndex === photoData.length - 1}><ChevronRight /></button>
       </div>
     </div>
   );
 };
 
-const MusicToolbar = ({ 
-  isPlaying, 
-  onToggle, 
-  volume, 
-  onVolumeChange, 
-  isMuted, 
-  onMuteToggle 
-}: { 
-  isPlaying: boolean; 
-  onToggle: () => void; 
-  volume: number; 
+const MusicToolbar = ({
+  isPlaying,
+  onToggle,
+  volume,
+  onVolumeChange,
+  isMuted,
+  onMuteToggle
+}: {
+  isPlaying: boolean;
+  onToggle: () => void;
+  volume: number;
   onVolumeChange: (v: number) => void;
   isMuted: boolean;
   onMuteToggle: () => void;
 }) => {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       className="fixed bottom-8 right-8 z-[60] flex items-center space-x-4 h-14 pr-6 pl-4 glass rounded-full shadow-2xl border-white/10"
@@ -861,12 +861,12 @@ const MusicToolbar = ({
       </Tooltip>
 
       <div className="group relative flex items-center w-24">
-        <input 
-          type="range" 
-          min="0" 
-          max="1" 
-          step="0.01" 
-          value={isMuted ? 0 : volume} 
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value={isMuted ? 0 : volume}
           onChange={(e) => onVolumeChange(parseFloat(e.target.value))}
           className="w-full h-1 bg-white/20 rounded-full appearance-none cursor-pointer accent-white hover:accent-amber-200 transition-all"
         />
@@ -887,13 +887,13 @@ const GoldenMemories = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => v
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-[200] overflow-y-auto bg-slate-950/95 backdrop-blur-2xl px-6 py-20"
         >
-          <motion.button 
+          <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             onClick={onClose}
@@ -904,14 +904,14 @@ const GoldenMemories = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => v
 
           <div className="max-w-4xl mx-auto space-y-32">
             <div className="text-center">
-              <motion.span 
+              <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 className="text-amber-200/60 uppercase tracking-[1em] text-xs font-bold block mb-6"
               >
                 Archive of Love
               </motion.span>
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
@@ -922,7 +922,7 @@ const GoldenMemories = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => v
             </div>
 
             {memories.map((memory, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -946,7 +946,7 @@ const GoldenMemories = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => v
 
             <div className="py-20 text-center">
               <p className="font-calligraphy text-4xl text-amber-100/60 italic">To many more chapters...</p>
-              <button 
+              <button
                 onClick={onClose}
                 className="mt-12 px-10 py-4 glass rounded-full text-white uppercase tracking-widest text-xs hover:bg-white/10 transition-all"
               >
@@ -1049,8 +1049,8 @@ function App() {
             <StarField mousePos={mousePos} />
             <FallingStars />
             <PartyTasks tasks={tasks} />
-            <MusicToolbar 
-              isPlaying={isMusicPlaying} 
+            <MusicToolbar
+              isPlaying={isMusicPlaying}
               onToggle={() => {
                 setIsMusicPlaying(!isMusicPlaying);
                 if (!isMusicPlaying) completeTask('music');
@@ -1066,77 +1066,77 @@ function App() {
             <MoonBackground onWish={() => completeTask('wish')} />
             <main className="relative z-30 container mx-auto px-6 py-20 flex flex-col items-center">
               <motion.div className="text-center min-h-[90vh] flex flex-col justify-center items-center">
-                 <motion.div style={{ y: y1 }} className="mb-4">
-                   <h1 className="text-4xl md:text-8xl font-serif italic text-white animate-neon leading-tight">
-                     Happy Birthday
-                   </h1>
-                 </motion.div>
-                 <motion.div 
-                   style={{ y: y2 }}
-                   onMouseEnter={startHoverTimer}
-                   onMouseLeave={stopHoverTimer}
-                   className="relative group cursor-help"
-                 >
-                   <h1 className="text-4xl md:text-8xl font-serif italic text-white/40 leading-tight">
-                     Bhavya Reddy
-                   </h1>
-                   
-                   {/* Hidden Progress Glow */}
-                   {hoverProgress > 0 && hoverProgress < 100 && (
-                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <motion.div 
-                          className="w-full h-1 bg-white/20 absolute bottom-0 rounded-full overflow-hidden"
-                          initial={{ width: 0 }}
-                          animate={{ width: "100%" }}
-                        >
-                          <motion.div 
-                            className="h-full bg-amber-200" 
-                            style={{ width: `${hoverProgress}%` }}
-                          />
-                        </motion.div>
-                     </div>
-                   )}
+                <motion.div style={{ y: y1 }} className="mb-4">
+                  <h1 className="text-4xl md:text-8xl font-serif italic text-white animate-neon leading-tight">
+                    Happy Birthday
+                  </h1>
+                </motion.div>
+                <motion.div
+                  style={{ y: y2 }}
+                  onMouseEnter={startHoverTimer}
+                  onMouseLeave={stopHoverTimer}
+                  className="relative group cursor-help"
+                >
+                  <h1 className="text-4xl md:text-8xl font-serif italic text-white/40 leading-tight">
+                    Bhavya Reddy
+                  </h1>
 
-                   <AnimatePresence>
-                     {showEasterEgg && (
-                       <motion.div
-                         initial={{ opacity: 0, scale: 0.5, y: 20 }}
-                         animate={{ opacity: 1, scale: 1, y: 0 }}
-                         className="absolute top-full mt-12 left-1/2 -translate-x-1/2 w-max z-50"
-                       >
-                         <div className="glass px-10 py-5 rounded-full border-amber-200/30 flex items-center space-x-4 shadow-[0_0_80px_rgba(255,255,255,0.15)]">
-                           <Sparkles className="w-6 h-6 text-amber-200 animate-pulse" />
-                           <span className="font-calligraphy text-3xl text-amber-100 italic">
-                             Eternal Star of Our Lives
-                           </span>
-                           <Sparkles className="w-6 h-6 text-amber-200 animate-pulse" />
-                         </div>
-                       </motion.div>
-                     )}
-                   </AnimatePresence>
-                 </motion.div>
-                 
-                 <SectionReveal delay={0.8}>
-                    <MusicBlock3D isPlaying={isMusicPlaying} onToggle={() => { setIsMusicPlaying(!isMusicPlaying); completeTask('music'); }} />
-                 </SectionReveal>
-                 
-                 <motion.div 
-                   animate={{ y: [0, 10, 0], opacity: [0.2, 0.5, 0.2] }}
-                   transition={{ duration: 2, repeat: Infinity }}
-                   className="text-white/20 uppercase tracking-[0.4em] text-[10px] mt-24"
-                 >
-                   Scroll for Magic
-                 </motion.div>
+                  {/* Hidden Progress Glow */}
+                  {hoverProgress > 0 && hoverProgress < 100 && (
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <motion.div
+                        className="w-full h-1 bg-white/20 absolute bottom-0 rounded-full overflow-hidden"
+                        initial={{ width: 0 }}
+                        animate={{ width: "100%" }}
+                      >
+                        <motion.div
+                          className="h-full bg-amber-200"
+                          style={{ width: `${hoverProgress}%` }}
+                        />
+                      </motion.div>
+                    </div>
+                  )}
+
+                  <AnimatePresence>
+                    {showEasterEgg && (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.5, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        className="absolute top-full mt-12 left-1/2 -translate-x-1/2 w-max z-50"
+                      >
+                        <div className="glass px-10 py-5 rounded-full border-amber-200/30 flex items-center space-x-4 shadow-[0_0_80px_rgba(255,255,255,0.15)]">
+                          <Sparkles className="w-6 h-6 text-amber-200 animate-pulse" />
+                          <span className="font-calligraphy text-3xl text-amber-100 italic">
+                            Eternal Star of Our Lives
+                          </span>
+                          <Sparkles className="w-6 h-6 text-amber-200 animate-pulse" />
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+
+                <SectionReveal delay={0.8}>
+                  <MusicBlock3D isPlaying={isMusicPlaying} onToggle={() => { setIsMusicPlaying(!isMusicPlaying); completeTask('music'); }} />
+                </SectionReveal>
+
+                <motion.div
+                  animate={{ y: [0, 10, 0], opacity: [0.2, 0.5, 0.2] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="text-white/20 uppercase tracking-[0.4em] text-[10px] mt-24"
+                >
+                  Scroll for Magic
+                </motion.div>
               </motion.div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-20 w-full max-w-6xl mt-40">
                 <SectionReveal delay={0.2}>
-                  <GiftBox 
-                    onOpen={() => completeTask('gift')} 
-                    onMemoryView={() => { 
+                  <GiftBox
+                    onOpen={() => completeTask('gift')}
+                    onMemoryView={() => {
                       completeTask('memories');
                       setIsMemoriesOpen(true);
-                    }} 
+                    }}
                   />
                 </SectionReveal>
                 <SectionReveal delay={0.4}>
@@ -1149,11 +1149,11 @@ function App() {
               </SectionReveal>
 
               <div className="w-full flex justify-center mt-32 mb-10">
-                <motion.button 
-                   whileHover={{ scale: 1.05 }}
-                   whileTap={{ scale: 0.95 }}
-                   onClick={() => setIsMemoriesOpen(true)}
-                   className="glass px-12 py-5 rounded-full text-white flex items-center space-x-6 border-amber-200/20 group hover:border-amber-200/50 transition-all shadow-[0_0_50px_rgba(251,191,36,0.1)]"
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setIsMemoriesOpen(true)}
+                  className="glass px-12 py-5 rounded-full text-white flex items-center space-x-6 border-amber-200/20 group hover:border-amber-200/50 transition-all shadow-[0_0_50px_rgba(251,191,36,0.1)]"
                 >
                   <span className="text-[10px] uppercase tracking-[0.6em] font-bold">Open Golden Archive</span>
                   <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-amber-200 group-hover:text-slate-950 transition-colors">
@@ -1163,17 +1163,17 @@ function App() {
               </div>
 
               <PhotoGallery />
-              
+
               <SectionReveal>
                 <LunarCalendar onExplore={() => completeTask('calendar')} />
               </SectionReveal>
-              
+
               <CinematicVideo />
-              
+
               <SectionReveal className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-8 py-32">
-                 <MessageReveal from="Bestie" text="You make every day brighter, Bhavya!" />
-                 <MessageReveal from="Family" text="So proud of who you've become." />
-                 <MessageReveal from="The Stars" text="Your shine is eternal." />
+                <MessageReveal from="Bestie" text="You make every day brighter, Bhavya!" />
+                <MessageReveal from="Family" text="So proud of who you've become." />
+                <MessageReveal from="The Stars" text="Your shine is eternal." />
               </SectionReveal>
             </main>
             <GoldenMemories isOpen={isMemoriesOpen} onClose={() => setIsMemoriesOpen(false)} />
