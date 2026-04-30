@@ -442,7 +442,7 @@ const PasscodeGate = ({ onSuccess }: { onSuccess: () => void; key?: any }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (code === '2026') {
+    if (code === '2007') {
       onSuccess();
     } else {
       setError(true);
@@ -487,7 +487,7 @@ const PasscodeGate = ({ onSuccess }: { onSuccess: () => void; key?: any }) => {
           </button>
         </form>
         <p className="mt-8 text-[10px] text-slate-600 uppercase tracking-widest leading-loose">
-          Hint: The year she was born or a special year. <br /> (Code is 2026 for now)
+          Hint: The year she was born. <br />
         </p>
       </div>
     </motion.div>
@@ -554,7 +554,7 @@ const MusicBlock3D = ({ isPlaying, onToggle }: { isPlaying: boolean; onToggle: (
               {isPlaying ? <Pause className="w-12 h-12 text-amber-200" /> : <Play className="w-12 h-12 text-amber-200 ml-2" />}
             </motion.div>
             <h4 className="text-white/40 text-[10px] uppercase tracking-[0.6em] font-bold mb-3">Personalized Melody</h4>
-            <h2 className="font-calligraphy text-5xl text-white mb-4">Sokka Thangamadi</h2>
+            <h2 className="font-calligraphy text-5xl text-white mb-4">Bhavya Reddy</h2>
             <p className="text-slate-400 text-sm font-light mb-10 max-w-xs leading-relaxed">
               This song is for you, Bhavya. Let the melody paint your special day in gold.
             </p>
@@ -1171,7 +1171,7 @@ function App() {
               <CinematicVideo />
 
               <SectionReveal className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-8 py-32">
-                <MessageReveal from="Bestie" text="You make every day brighter, Bhavya!" />
+                <MessageReveal from="Stranger" text="You make every day brighter, Bhavya!" />
                 <MessageReveal from="Family" text="So proud of who you've become." />
                 <MessageReveal from="The Stars" text="Your shine is eternal." />
               </SectionReveal>
